@@ -46,12 +46,12 @@ import {
   SectionTitle,
   PersonaCardGrid,
   InsightBlock,
-  CaseStudyImage,
   QuoteBanner,
   ImageWithQuote,
   CaseStudyHero,
   CaseStudyBody,
   ImageGrid,
+  ImageCarousel,
 } from '@/app/components/case-study/CaseStudyPrimitives';
 
 /* ── Bluevine Logo (text placeholder) ── */
@@ -222,13 +222,11 @@ export default function CaseStutyBluevineConent() {
           </p>
         </SectionTitle>
 
-        <div className="flex flex-col gap-[var(--space-4)] md:gap-[var(--space-6)]">
-          <CaseStudyImage src={imgImage184} alt="Onboarding step 1" className="rounded-lg" />
-          <CaseStudyImage src={imgImage185} alt="Onboarding step 2" className="rounded-lg" />
-          <CaseStudyImage src={imgImage186} alt="Onboarding step 3" className="rounded-lg" />
-          <CaseStudyImage src={imgImage187} alt="Onboarding step 4" className="rounded-lg" />
-          <CaseStudyImage src={imgImage188} alt="Onboarding step 5" className="rounded-lg" />
-        </div>
+        <ImageCarousel
+          images={[imgImage184, imgImage185, imgImage186, imgImage187, imgImage188]}
+          alt="Onboarding step"
+          autoPlayMs={4000}
+        />
       </Section>
 
       {/* ── 6. Dashboard ────────────────────────────────── */}
@@ -244,14 +242,15 @@ export default function CaseStutyBluevineConent() {
             make confident decisions in real time.
           </p>
         </SectionTitle>
-
-        <div className="flex flex-col gap-[var(--space-4)] md:gap-[var(--space-6)]">
-          <CaseStudyImage src={imgDash216} alt="Dashboard — financial overview" className="rounded-lg" />
-          <CaseStudyImage src={imgDash217} alt="Dashboard — payments and transfers" className="rounded-lg" />
-          <CaseStudyImage src={imgDash218} alt="Dashboard — credit and lending" className="rounded-lg" />
-          <CaseStudyImage src={imgDash219} alt="Dashboard — reporting and insights" className="rounded-lg" />
-        </div>
       </Section>
+
+      <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] pb-[var(--space-12)] md:pb-[var(--space-16)]">
+        <ImageCarousel
+          images={[imgDash216, imgDash217, imgDash218, imgDash219]}
+          alt="Dashboard screen"
+          autoPlayMs={4000}
+        />
+      </div>
 
       {/* ── 7. Mobile App ───────────────────────────────── */}
       <Section>
@@ -319,9 +318,6 @@ export default function CaseStutyBluevineConent() {
         alt="Bluevine insight"
         preQuote={`"When users clearly understand what will happen next, It makes them:`}
         quote='they move faster, make better decisions, and rely on the product more often"'
-        textColorClass="text-text-inverse"
-        preQuoteClassName="type-body text-text-inverse"
-        quoteClassName="type-display text-text-inverse"
       />
       </CaseStudyBody>
     </>

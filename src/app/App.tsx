@@ -194,7 +194,7 @@ export function App() {
         <main className="flex-1 flex flex-col items-center justify-center px-[var(--content-px)] md:px-[var(--content-px-md)] text-center relative">
         <div className="flex flex-col items-center">
           <motion.p 
-            className="max-w-4xl mb-[var(--space-8)] text-[var(--text-body)] md:text-[18px] lg:text-[22px] leading-[var(--leading-relaxed)] font-[var(--weight-thin)] px-[var(--space-4)]"
+            className="max-w-4xl mb-[var(--space-8)] text-[var(--text-body)] md:text-[18px] lg:text-[22px] leading-[var(--leading-relaxed)] font-[var(--weight-light)] px-[var(--space-4)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.3, ease: 'easeOut' }}
@@ -279,7 +279,7 @@ export function App() {
 
       {/* Project 2: Monday.com */}
       <ProjectCard
-        title="Monday.com"
+        title="monday.com"
         description="monday.com is a work management platform that helps teams plan, track, and collaborate efficiently together daily."
         imageSrc={imgMondayMacBook}
         backgroundColor="var(--surface-secondary)"

@@ -450,7 +450,6 @@ export default function CaseStutyFundguardContent() {
         alt="Fundguard closing"
         preQuote={`"Enterprise UX succeeds when users stop fighting the interface`}
         quote='and start reasoning about the system"'
-        textColorClass="text-text-inverse"
       />
       </CaseStudyBody>
     </>

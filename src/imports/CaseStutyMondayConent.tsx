@@ -546,9 +546,10 @@ export default function CaseStutyMondayConent() {
       {/* ── 12. Final Quote ─────────────────────────────── */}
       <ImageWithQuote
         src={imgImage193}
-        alt="Monday.com closing"
+        alt="monday.com closing"
         preQuote={`"Good monetization UX doesn't push users to pay.`}
         quote='It removes the fear of saying yes״'
+        textColorClass="text-text-primary"
       />
       </CaseStudyBody>
     </>

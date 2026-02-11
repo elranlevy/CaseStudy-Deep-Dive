@@ -44,14 +44,14 @@ export function ProjectCard({
         >
           {/* Title label */}
           <div className="flex items-center justify-start p-[var(--space-2)]">
-            <p className="type-label uppercase">
+            <p className="type-label !normal-case">
               {title}
             </p>
           </div>
 
           {/* Description */}
           <div className="flex items-center justify-center p-[var(--space-2)]">
-            <p className="font-[var(--weight-extralight)] text-text-primary text-[28px] leading-tight tracking-[var(--tracking-tight)]">
+            <p className="font-[var(--weight-extralight)] text-text-primary text-[22px] md:text-[28px] leading-tight tracking-[var(--tracking-tight)]">
               {description}
             </p>
           </div>

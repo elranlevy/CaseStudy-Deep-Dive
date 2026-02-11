@@ -37,6 +37,7 @@ import {
   CaseStudyBody,
   SkillCardGrid,
   ImageGrid,
+  ImageCarousel,
   LazyVideo,
 } from '@/app/components/case-study/CaseStudyPrimitives';
 
@@ -288,7 +289,7 @@ export default function CaseStutyBitContent() {
             alt="Iteration process: Sketch, Test, Gather insights, Release"
             loading="lazy"
             decoding="async"
-            className="w-full h-auto"
+            className="w-[150%] max-w-none h-auto relative left-1/2 -translate-x-1/2"
           />
         </div>
       </Section>
@@ -304,9 +305,9 @@ export default function CaseStutyBitContent() {
         </InsightBlock>
       </Section>
 
-      {/* Phone mockups — full width row */}
-      <div className="max-w-[var(--content-wide-max-w)] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] pb-[var(--space-12)] md:pb-[var(--space-16)]">
-        <ImageGrid
+      {/* Phone mockups — slideshow carousel */}
+      <div className="max-w-[var(--content-max-w)] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] pb-[var(--space-12)] md:pb-[var(--space-16)]">
+        <ImageCarousel
           images={[
             imgBitmap1,
             imgBitmap2,
@@ -315,8 +316,8 @@ export default function CaseStutyBitContent() {
             imgBitmap4,
             imgBitmap5,
           ]}
-          columns={6}
-          alt="Error state mockup"
+          alt="App screen mockup"
+          autoPlayMs={4000}
         />
       </div>
 
@@ -331,17 +332,29 @@ export default function CaseStutyBitContent() {
         </SectionTitle>
       </Section>
 
-      <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] bg-surface-secondary pb-[var(--space-12)] md:pb-[var(--space-16)]">
-        <CaseStudyImage src={imgImage172} alt="Intent to selection flow" />
+      <div className="w-full bg-surface-secondary pb-[var(--space-12)] md:pb-[var(--space-16)]">
+        <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)]">
+          <div className="aspect-[4/3] flex items-center justify-center">
+            <img src={imgImage172} alt="Intent to selection flow" loading="lazy" decoding="async" className="max-w-full max-h-full object-contain" />
+          </div>
+        </div>
       </div>
 
       {/* ── 9. App Screenshots ──────────────────────────── */}
-      <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] py-[var(--space-12)] md:py-[var(--space-16)]">
-        <CaseStudyImage src={imgImage173} alt="Bit app flow overview" />
+      <div className="w-full py-[var(--space-12)] md:py-[var(--space-16)]">
+        <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)]">
+          <div className="aspect-[4/3] flex items-center justify-center">
+            <img src={imgImage173} alt="Bit app flow overview" loading="lazy" decoding="async" className="max-w-full max-h-full object-contain" />
+          </div>
+        </div>
       </div>
 
-      <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] bg-surface-secondary py-[var(--space-12)] md:py-[var(--space-16)]">
-        <CaseStudyImage src={imgImage174} alt="Bit app detailed screens" />
+      <div className="w-full bg-surface-secondary py-[var(--space-12)] md:py-[var(--space-16)]">
+        <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)]">
+          <div className="aspect-[4/3] flex items-center justify-center">
+            <img src={imgImage174} alt="Bit app detailed screens" loading="lazy" decoding="async" className="max-w-full max-h-full object-contain" />
+          </div>
+        </div>
       </div>
 
       {/* ── 10. Seamless Motion ─────────────────────────── */}
@@ -353,12 +366,14 @@ export default function CaseStutyBitContent() {
             creating a smooth, intuitive flow from start to finish.
           </p>
         </SectionTitle>
+      </Section>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-[var(--space-5)]">
+      <div className="max-w-[1331px] mx-auto px-[var(--content-px)] md:px-[var(--content-px-md)] lg:px-[var(--space-12)] pb-[var(--space-12)] md:pb-[var(--space-16)]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-[50px]">
           {[seamlessMotion1, seamlessMotion2, seamlessMotion3, seamlessMotion4].map((src, i) => (
             <div
               key={i}
-              className="rounded-[21px] aspect-[223/493] overflow-hidden"
+              className="aspect-[223/493] overflow-hidden"
             >
               <LazyVideo
                 src={src}
@@ -367,7 +382,7 @@ export default function CaseStutyBitContent() {
             </div>
           ))}
         </div>
-      </Section>
+      </div>
 
       {/* ── 11. What This Case Demonstrates ─────────────── */}
       <Section>
@@ -411,7 +426,6 @@ export default function CaseStutyBitContent() {
         alt="Bit closing"
         preQuote={`Great product design isn't about adding features — it's about removing everything users don't need. This project reinforced my belief that:`}
         quote='"The best financial UX feels invisible"'
-        textColorClass="text-white"
       />
       </CaseStudyBody>
     </>

@@ -18,6 +18,10 @@
      --shadow-*         → shadow-sm, shadow-md, etc.
    ────────────────────────────────────────────────────────────── */
 @theme inline {
+  /* Primitives */
+  --color-white:            #ffffff;
+  --color-black:            #000000;
+
   /* Semantic colors */
   --color-background:       var(--surface-primary);
   --color-foreground:       var(--text-primary);
@@ -123,7 +127,7 @@
   .type-display {
     font-family: var(--font-sans);
     font-weight: var(--weight-light);
-    font-size: clamp(1.25rem, 3vw + 0.5rem, 3rem);  /* 20px → 48px */
+    font-size: 24px;
     line-height: var(--leading-snug);
     letter-spacing: var(--tracking-wide);
   }
@@ -215,6 +219,14 @@
     font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.5rem);
     line-height: var(--leading-normal);
     color: var(--text-primary);
+  }
+
+  /* Overlay text — force white on dark image backgrounds */
+  .text-on-image {
+    color: #ffffff !important;
+  }
+  .text-on-image-dark {
+    color: var(--text-primary) !important;
   }
 
   /* ── Image performance ─────────────────────────────────────── */

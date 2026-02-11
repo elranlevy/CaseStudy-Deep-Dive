@@ -1,4 +1,4 @@
-import { type ReactNode, useRef, useEffect, useState } from 'react';
+import { type ReactNode, useRef, useEffect, useState, useCallback } from 'react';
 
 /* ============================================================
    Case Study Primitives — Responsive building blocks
@@ -378,7 +378,7 @@ export function ImageWithQuote({
   alt = '',
   preQuote,
   quote,
-  textColorClass = 'text-text-secondary',
+  textColorClass = 'text-white',
   preQuoteClassName,
   quoteClassName,
 }: {
@@ -390,17 +390,19 @@ export function ImageWithQuote({
   preQuoteClassName?: string;
   quoteClassName?: string;
 }) {
+  const overlayClass = textColorClass === 'text-white' ? 'text-on-image' : textColorClass === 'text-text-primary' ? 'text-on-image-dark' : '';
+
   return (
     <div className="relative w-full overflow-hidden">
       <img src={src} alt={alt} loading="lazy" decoding="async" className="w-full h-auto object-cover" />
       <div className="absolute inset-0 flex items-center">
-        <div className="ml-auto mr-1 md:mr-[var(--space-12)] lg:mr-[var(--space-20)] max-w-[38%] md:max-w-sm lg:max-w-md">
+        <div className={`ml-auto mr-1 md:mr-[var(--space-12)] lg:mr-[var(--space-20)] max-w-[38%] md:max-w-sm lg:max-w-md ${overlayClass}`}>
           {preQuote && (
-            <p className={preQuoteClassName ?? `text-[10px] leading-3 md:text-base md:leading-7 ${textColorClass} mb-1 md:mb-[var(--space-2)] tracking-[var(--tracking-body)] font-[var(--weight-light)]`}>
+            <p className={preQuoteClassName ?? `text-[10px] leading-3 md:text-base md:leading-7 mb-1 md:mb-[var(--space-2)] tracking-[var(--tracking-body)] font-[var(--weight-light)]`}>
               {preQuote}
             </p>
           )}
-          <p className={quoteClassName ?? `text-xs leading-4 md:text-3xl md:leading-snug lg:text-[var(--text-display)] lg:leading-[var(--leading-snug)] font-[var(--weight-light)] ${textColorClass} tracking-[var(--tracking-wide)]`}>
+          <p className={quoteClassName ?? `text-xs leading-4 md:text-3xl md:leading-snug lg:text-[var(--text-display)] lg:leading-[var(--leading-snug)] font-[var(--weight-light)] tracking-[var(--tracking-wide)]`}>
             {quote}
           </p>
         </div>
@@ -502,6 +504,129 @@ export function ImageGrid({
           className="w-full h-auto object-cover rounded-[var(--radius-lg)]"
         />
       ))}
+    </div>
+  );
+}
+
+// ── Image Carousel — slideshow with chevrons, autoplay & dots ─
+export function ImageCarousel({
+  images,
+  alt = '',
+  autoPlayMs = 4000,
+}: {
+  images: string[];
+  alt?: string;
+  /** Time between auto-advances in ms (0 = disabled) */
+  autoPlayMs?: number;
+}) {
+  const [current, setCurrent] = useState(0);
+  const total = images.length;
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
+
+  const goTo = useCallback(
+    (idx: number) => {
+      setCurrent(((idx % total) + total) % total);
+    },
+    [total],
+  );
+
+  const next = useCallback(() => goTo(current + 1), [current, goTo]);
+  const prev = useCallback(() => goTo(current - 1), [current, goTo]);
+
+  // Auto-play
+  useEffect(() => {
+    if (!autoPlayMs || paused) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
+    timerRef.current = setInterval(() => {
+      setCurrent((c) => (c + 1) % total);
+    }, autoPlayMs);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [autoPlayMs, paused, total]);
+
+  // Touch / swipe support
+  const touchStartX = useRef(0);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) {
+      dx < 0 ? next() : prev();
+    }
+  };
+
+  return (
+    <div
+      className="relative w-full select-none group"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Slide track — capped to 70vh so one slide fits in view */}
+      <div className="overflow-hidden rounded-[var(--radius-lg)] max-h-[70vh]">
+        <div
+          ref={trackRef}
+          className="flex transition-transform duration-500 ease-in-out h-full"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          {images.map((src, i) => (
+            <div key={i} className="w-full flex-shrink-0 flex items-center justify-center">
+              <img
+                src={src}
+                alt={`${alt} ${i + 1}`}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                className="max-h-[70vh] w-auto mx-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Left chevron */}
+      <button
+        onClick={prev}
+        aria-label="Previous slide"
+        className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/50 cursor-pointer"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+
+      {/* Right chevron */}
+      <button
+        onClick={next}
+        aria-label="Next slide"
+        className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/30 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-black/50 cursor-pointer"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 6 15 12 9 18" />
+        </svg>
+      </button>
+
+      {/* Bullet pagination */}
+      <div className="flex justify-center gap-2 mt-4 md:mt-6">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`rounded-full transition-all duration-300 cursor-pointer ${
+              i === current
+                ? 'w-6 h-2.5 bg-text-primary'
+                : 'w-2.5 h-2.5 bg-text-primary/30 hover:bg-text-primary/50'
+            }`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -387,7 +387,6 @@ export default function CaseStutyXreamioContent() {
         alt="XtreamIO closing"
         preQuote={`"Great monitoring UX doesn't simplify systems. It makes them:`}
         quote='understandable under pressure"'
-        textColorClass="text-text-inverse"
       />
       </CaseStudyBody>
     </>
