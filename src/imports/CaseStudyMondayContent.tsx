@@ -94,7 +94,7 @@ function MondayLogo() {
    ================================================================ */
 export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: () => void }) {
   return (
-    <div className="bg-white">
+    <div style={{ backgroundColor: 'var(--surface-primary)' }}>
       {/* ═══════════════════════════════════════════════════════
           HERO
           ═══════════════════════════════════════════════════════ */}
@@ -345,7 +345,7 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
       {/* ═══════════════════════════════════════════════════════
           CORE INSIGHT - Warm cream band
           ═══════════════════════════════════════════════════════ */}
-      <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: '#faf7f2' }}>
+      <section className="py-20 md:py-28 px-6 md:px-12" style={{ backgroundColor: 'var(--insight-bg)' }}>
         <div className="max-w-3xl mx-auto text-center">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] mb-8" style={{ color: 'var(--text-tertiary)' }}>Core Insight</p>
@@ -383,7 +383,7 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
           <Reveal delay={0.05}>
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0" style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0" style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}>
                   H1
                 </div>
                 <p className="text-sm md:text-base font-medium" style={{ color: 'var(--text-primary)' }}>
@@ -416,7 +416,7 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
           <Reveal delay={0.1}>
             <div className="mb-12">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0" style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0" style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}>
                   H2
                 </div>
                 <p className="text-sm md:text-base font-medium" style={{ color: 'var(--text-primary)' }}>
@@ -453,7 +453,7 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
           <Reveal delay={0.15}>
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0" style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0" style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}>
                   H3
                 </div>
                 <p className="text-sm md:text-base font-medium" style={{ color: 'var(--text-primary)' }}>
@@ -523,7 +523,7 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="flex items-start gap-6 md:gap-8" style={{ marginBottom: '16px' }}>
-                  <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 text-xs md:text-sm font-semibold" style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}>
+                  <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 text-xs md:text-sm font-semibold" style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}>
                     {step.num}
                   </div>
                   <div className="pt-0.5 flex-1">

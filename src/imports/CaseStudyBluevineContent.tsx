@@ -264,7 +264,7 @@ function DashboardCarousel({ images }: { images: string[] }) {
    ================================================================ */
 export default function CaseStudyBluevineContent({ onNextStudy }: { onNextStudy?: () => void }) {
   return (
-    <div className="bg-white">
+    <div style={{ backgroundColor: 'var(--surface-primary)' }}>
       {/* ═══════════════════════════════════════════════════════
           HERO
           ═══════════════════════════════════════════════════════ */}
@@ -600,7 +600,7 @@ export default function CaseStudyBluevineContent({ onNextStudy }: { onNextStudy?
             ].map((step, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="flex items-start gap-6 md:gap-8" style={{ marginBottom: '16px' }}>
-                  <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 text-xs md:text-sm font-semibold" style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}>
+                  <div className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 text-xs md:text-sm font-semibold" style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}>
                     {step.num}
                   </div>
                   <div className="pt-0.5 flex-1">

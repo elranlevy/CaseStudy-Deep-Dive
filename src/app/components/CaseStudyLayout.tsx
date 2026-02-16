@@ -25,8 +25,8 @@ export function CaseStudyLayout({ children, onBack }: CaseStudyLayoutProps) {
       {/* Back button - floating */}
       <motion.button
         onClick={() => (onBack ? onBack() : window.history.back())}
-        className="absolute top-5 left-6 md:left-12 lg:left-16 z-50 group flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm text-sm font-light hover:bg-white transition-all duration-300 cursor-pointer"
-        style={{ color: 'var(--text-primary)' }}
+        className="absolute top-5 left-6 md:left-12 lg:left-16 z-50 group flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm text-sm font-light transition-all duration-300 cursor-pointer hover:opacity-80"
+        style={{ color: 'var(--text-primary)', backgroundColor: 'var(--surface-secondary)' }}
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}

@@ -44,7 +44,7 @@ export function ProjectCard({
           imagePosition === 'left' ? 'lg:flex-row-reverse' : 'lg:flex-row'
         } items-center gap-8 lg:gap-12 rounded-2xl p-6 md:p-10 lg:p-12 transition-colors duration-500`}
         style={{ backgroundColor: 'var(--surface-secondary)' }}
-        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#ececec')}
+        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = document.documentElement.classList.contains('dark') ? '#222830' : '#ececec')}
         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--surface-secondary)')}
       >
         {/* Text Content */}
@@ -58,7 +58,7 @@ export function ProjectCard({
                   className="text-[11px] uppercase tracking-[0.15em] px-3 py-1 rounded-full"
                   style={{
                     color: 'var(--text-tertiary)',
-                    backgroundColor: 'rgba(255,255,255,0.85)',
+                    backgroundColor: 'var(--tag-bg)',
                   }}
                 >
                   {tag}

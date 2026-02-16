@@ -64,6 +64,11 @@
   --brand-hover: var(--color-blue-700);
   --accent:      var(--color-blue-400);
 
+  /* Component-specific */
+  --tag-bg: rgba(255,255,255,0.85);
+  --insight-bg: #faf7f2;
+  --step-circle-bg: var(--color-gray-900);
+
   /* Ring / Focus */
   --ring: var(--brand);
 
@@ -205,4 +210,26 @@
   --avatar-size:    96px;   /* mobile */
   --avatar-size-md: 122px;  /* desktop (Figma spec) */
   --avatar-radius:  var(--radius-full);
+}
+
+/* ── Dark Mode Overrides ─────────────────────────────────────── */
+html.dark {
+  --text-primary:    #e8eaed;
+  --text-secondary:  #b8bcc4;
+  --text-tertiary:   #7aa2c4;
+  --text-inverse:    var(--color-gray-900);
+
+  --surface-primary:   #0f1419;
+  --surface-secondary: #1a2028;
+  --surface-dark:      #000000;
+
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-subtle:  #2a3040;
+  --border-muted:   #1e2630;
+
+  --color-gray-900: #0f1419;
+
+  --tag-bg: #191c1f;
+  --insight-bg: #191c1f;
+  --step-circle-bg: #191c1f;
 }

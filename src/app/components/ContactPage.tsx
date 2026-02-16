@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export function ContactPage() {
   return (
-    <div className="min-h-screen bg-white pt-28 md:pt-32">
+    <div className="min-h-screen pt-28 md:pt-32" style={{ backgroundColor: 'var(--surface-primary)' }}>
       {/* Main Content */}
       <main className="flex flex-col items-center justify-center px-4 md:px-8 lg:px-16 xl:px-24 py-8 md:py-12 lg:py-16 gap-6 md:gap-8">
         <motion.div 

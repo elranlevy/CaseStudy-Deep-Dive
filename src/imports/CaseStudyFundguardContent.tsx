@@ -78,7 +78,7 @@ function VerticalDivider() {
    ================================================================ */
 export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy?: () => void }) {
   return (
-    <div className="bg-white">
+    <div style={{ backgroundColor: 'var(--surface-primary)' }}>
       {/* ═══════════════════════════════════════════════════════
           HERO
           ═══════════════════════════════════════════════════════ */}
@@ -421,7 +421,7 @@ export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy
               <div className="flex items-center gap-3 mb-6">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0"
-                  style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}
+                  style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}
                 >
                   H1
                 </div>
@@ -474,7 +474,7 @@ export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy
               <div className="flex items-center gap-3 mb-6">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold flex-shrink-0"
-                  style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}
+                  style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}
                 >
                   H2
                 </div>
@@ -700,7 +700,7 @@ export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy
                   {/* Timeline node */}
                   <div
                     className="relative z-10 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 text-xs md:text-sm font-semibold"
-                    style={{ backgroundColor: 'var(--text-primary)', color: 'white' }}
+                    style={{ backgroundColor: 'var(--step-circle-bg)', color: 'white' }}
                   >
                     {step.num}
                   </div>

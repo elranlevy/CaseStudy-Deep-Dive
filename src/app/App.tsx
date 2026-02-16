@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowRight, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, ArrowRight, Linkedin, Mail, Sun, Moon } from 'lucide-react';
 import { ProjectCard } from '@/app/components/ProjectCard';
 
 import { ContactPage } from '@/app/components/ContactPage';
@@ -23,9 +23,20 @@ import imgPhotoCircle from '@/assets/elran-portrait-circle.png';
 
 export function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') === 'dark';
+    }
+    return false;
+  });
   const [currentPage, setCurrentPage] = useState<
     'home' | 'contact' | 'fundguard' | 'bit' | 'xtreamio' | 'monday' | 'bluevine'
   >('home');
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+  }, [darkMode]);
 
   /* -- Navigation -------------------------------------------------- */
   const navigateTo = (page: typeof currentPage) => {
@@ -334,11 +345,11 @@ export function App() {
      RENDER
      ================================================================ */
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen transition-colors duration-300" style={{ backgroundColor: 'var(--surface-primary)' }}>
       {/* -- Global Fixed Navigation (hidden on case study pages) ----- */}
       {(currentPage === 'home' || currentPage === 'contact') &&       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md px-6 md:px-12 lg:px-16"
-        style={{ borderBottom: '1px solid rgba(0,0,0,0.06)' }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md px-6 md:px-12 lg:px-16 transition-colors duration-300"
+        style={{ backgroundColor: darkMode ? 'rgba(15,20,25,0.9)' : 'rgba(255,255,255,0.9)', borderBottom: `1px solid ${darkMode ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)'}` }}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -356,34 +367,46 @@ export function App() {
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10 text-[13px]">
-            <button
-              onClick={() => {
-                navigateTo('home');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="hover:opacity-50 transition-opacity duration-300 font-light"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              about
-            </button>
-            <button
-              onClick={handleWorkClick}
-              className="hover:opacity-50 transition-opacity duration-300 font-light"
-              style={{ color: 'var(--text-primary)' }}
-            >
-              projects
-            </button>
-          </nav>
+          <div className="flex items-center gap-6 lg:gap-8">
+            <nav className="hidden md:flex items-center gap-8 lg:gap-10 text-[13px]">
+              <button
+                onClick={() => {
+                  navigateTo('home');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="hover:opacity-50 transition-opacity duration-300 font-light"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                about
+              </button>
+              <button
+                onClick={handleWorkClick}
+                className="hover:opacity-50 transition-opacity duration-300 font-light"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                projects
+              </button>
+            </nav>
 
-          {/* Mobile Hamburger */}
-          <button
-            className="md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 rounded-full hover:opacity-50 transition-opacity duration-300"
+              style={{ color: 'var(--text-primary)' }}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun className="w-4 h-4" strokeWidth={1.5} /> : <Moon className="w-4 h-4" strokeWidth={1.5} />}
+            </button>
+
+            {/* Mobile Hamburger */}
+            <button
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </motion.header>}
 
@@ -395,7 +418,8 @@ export function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[60] flex flex-col items-center justify-center transition-colors duration-300"
+            style={{ backgroundColor: 'var(--surface-primary)' }}
           >
             <button
               className="absolute top-5 right-6"
