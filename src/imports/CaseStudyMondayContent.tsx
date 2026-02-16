@@ -651,7 +651,9 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
 
         <div className="max-w-6xl mx-auto">
           <Reveal>
-            <img src={imgImage195} alt="Plan selection interface" className="w-full h-auto rounded-xl mb-5" loading="lazy" decoding="async" />
+            <div className="lg:w-[130%] lg:ml-[-15%] mb-5">
+              <img src={imgImage195} alt="Plan selection interface" className="w-full h-auto rounded-xl" loading="lazy" decoding="async" />
+            </div>
           </Reveal>
           <Reveal>
             <div className="overflow-hidden rounded-xl mb-5">
@@ -721,8 +723,8 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
       {/* ═══════════════════════════════════════════════════════
           DISCOVERY VALUE & PROMOTED FEATURES - Full-width layout
           ═══════════════════════════════════════════════════════ */}
-      <section className="pb-4 px-6 md:px-12 lg:px-16">
-        <div className="max-w-6xl mx-auto space-y-5 mb-16">
+      <section className="pb-4 px-6 md:px-12 lg:px-16 overflow-hidden">
+        <div className="mx-auto space-y-5 mb-16">
           <Reveal>
             <img src={imgDiscoveryValue1} alt="Discovery through value — contextual feature surfacing" className="w-full h-auto rounded-xl" loading="lazy" decoding="async" />
           </Reveal>
@@ -731,7 +733,7 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
           </Reveal>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-5">
+        <div className="mx-auto space-y-5">
           <Reveal>
             <img src={imgPromotedMatch1} alt="Promoted features matching user workflow" className="w-full h-auto rounded-xl" loading="lazy" decoding="async" />
           </Reveal>
@@ -787,6 +789,27 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
       </section>
 
       {/* ═══════════════════════════════════════════════════════
+          OUTCOME - above dark band
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 px-6 md:px-12 lg:px-16">
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.3em] mb-6" style={{ color: 'var(--text-tertiary)' }}>Outcome</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-lg md:text-xl font-light mb-6" style={{ color: 'var(--text-secondary)' }}>
+              Feature comparison under pressure → Guided, usage-driven decision confidence
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="flex justify-center my-6">
+              <div className="w-10 h-px" style={{ backgroundColor: 'var(--border-subtle)' }} />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
           CLOSING - Dark band with pattern
           ═══════════════════════════════════════════════════════ */}
       <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-16 text-white overflow-hidden" style={{ backgroundColor: 'var(--color-gray-900)' }}>
@@ -799,27 +822,11 @@ export default function CaseStudyMondayContent({ onNextStudy }: { onNextStudy?: 
         }} />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] mb-6 text-white/40">Outcome</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-sm md:text-base font-light leading-relaxed text-white/70 mb-6">
-              Plan selection shifted from feature comparison under pressure
-            </p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.3] mb-2 text-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              → Guided, usage-driven decision confidence
-            </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="flex justify-center my-8">
-              <div className="w-10 h-px bg-white/20" />
-            </div>
-          </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-base md:text-lg font-light text-white/70">
+            <p className="text-xl md:text-2xl lg:text-3xl font-normal italic text-white" style={{ fontFamily: 'var(--font-serif)' }}>
               The moment of commitment became safer.
             </p>
-            <p className="text-lg md:text-xl font-normal italic mt-2 text-white" style={{ fontFamily: 'var(--font-serif)' }}>
+            <p className="text-xl md:text-2xl lg:text-3xl font-normal italic text-white mt-5" style={{ fontFamily: 'var(--font-serif)' }}>
               And when choosing feels safe - growth follows.
             </p>
           </Reveal>

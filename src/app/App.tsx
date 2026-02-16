@@ -19,6 +19,7 @@ import imgBluevinePhones from 'figma:asset/f54f4c1a2742d29249554b7c7a0e1bb0d7642
 
 /* -- About photo --------------------------------------------------- */
 import imgPhoto from 'figma:asset/b3b8e05334419d62db96917a5fffa3ff2c99440e.png';
+import imgPhotoCircle from '@/assets/elran-portrait-circle.png';
 
 export function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -97,6 +98,24 @@ export function App() {
       {/* -- About / Hero Section ----------------------------------- */}
       <section className="relative min-h-screen pt-20 pb-20 px-6 md:px-12 lg:px-16 flex flex-col justify-center">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
+          {/* Mobile Photo - circular, above text */}
+          <motion.div
+            className="lg:hidden flex justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
+          >
+            <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden">
+              <img
+                src={imgPhotoCircle}
+                alt="Elran Levy"
+                className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </motion.div>
+
           {/* Text Content */}
           <motion.div
             className="flex-1 flex flex-col gap-5"
@@ -146,9 +165,9 @@ export function App() {
             </div>
           </motion.div>
 
-          {/* Photo */}
+          {/* Desktop Photo - rectangular, on the right */}
           <motion.div
-            className="flex-1 max-w-sm lg:max-w-md"
+            className="hidden lg:block flex-1 max-w-md"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.5, ease: 'easeOut' }}
@@ -317,14 +336,14 @@ export function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* -- Global Fixed Navigation (hidden on case study pages) ----- */}
-      {(currentPage === 'home' || currentPage === 'contact') && <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md"
+      {(currentPage === 'home' || currentPage === 'contact') &&       <motion.header
+        className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md px-6 md:px-12 lg:px-16"
         style={{ borderBottom: '1px solid rgba(0,0,0,0.06)' }}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto py-5 flex items-center justify-between">
           <button
             onClick={() => {
               navigateTo('home');

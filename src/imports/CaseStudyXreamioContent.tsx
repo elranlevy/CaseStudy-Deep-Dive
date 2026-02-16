@@ -28,6 +28,7 @@ import imgImage174 from 'figma:asset/dc4843ec408a4532c53cdacb5ed2533eecd0dc2e.pn
 import imgImage176 from 'figma:asset/d4d58b02892ddfba3736780450879b582c47390e.png';
 import imgClusterStatus from 'figma:asset/1310cf6034e7996a8a437beaf595a9e75ee70205.png';
 import imgHealthStatus from '@/assets/xtreamio-health-status.png';
+import imgProtectionDialog from '@/assets/xtremio-protection-dialog.png';
 import imgImage178 from 'figma:asset/d7831a442bc44faf1090c9e711599d69abfabc41.png';
 import imgImage177 from 'figma:asset/84697da8fef42b33bbdcddc2442ef98a82019325.png';
 
@@ -369,8 +370,6 @@ export default function CaseStudyXreamioContent({ onNextStudy }: { onNextStudy?:
 
       <VerticalDivider />
 
-      <VerticalDivider />
-
       {/* ═══════════════════════════════════════════════════════
           FROM COMPLEX TO CLEAR - Flow comparison
           ═══════════════════════════════════════════════════════ */}
@@ -514,6 +513,18 @@ export default function CaseStudyXreamioContent({ onNextStudy }: { onNextStudy?:
             <p className="text-center text-sm font-medium mt-4" style={{ color: 'var(--text-primary)' }}>
               Losing context means losing control.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.6}>
+            <div className="mt-10 lg:w-[150%] lg:ml-[-25%]">
+              <img
+                src={imgProtectionDialog}
+                alt="One-click protection simplifies a complex process into a single, confident action"
+                className="w-full h-auto rounded-xl"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -724,6 +735,28 @@ export default function CaseStudyXreamioContent({ onNextStudy }: { onNextStudy?:
       </section>
 
       {/* ═══════════════════════════════════════════════════════
+          OUTCOME - above dark band
+          ═══════════════════════════════════════════════════════ */}
+      <section className="py-16 md:py-20 px-6 md:px-12 lg:px-16">
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.3em] mb-6" style={{ color: 'var(--text-tertiary)' }}>Outcome</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-sm md:text-base font-light mb-2" style={{ color: 'var(--text-secondary)' }}>XtremIO transformed from:</p>
+            <p className="text-lg md:text-xl font-light mb-6" style={{ color: 'var(--text-secondary)' }}>
+              Dense infrastructure dashboards → Grounded system awareness
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="flex justify-center my-6">
+              <div className="w-10 h-px" style={{ backgroundColor: 'var(--border-subtle)' }} />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════
           CLOSING - Dark band with pattern
           ═══════════════════════════════════════════════════════ */}
       <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-16 text-white overflow-hidden" style={{ backgroundColor: 'var(--color-gray-900)' }}>
@@ -736,30 +769,12 @@ export default function CaseStudyXreamioContent({ onNextStudy }: { onNextStudy?:
         }} />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] mb-6 text-white/40">Outcome</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-sm md:text-base font-light text-white/70 mb-2">XtremIO transformed from:</p>
-            <p className="text-lg md:text-xl font-light text-white/70 mb-1">Dense infrastructure dashboards</p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-white mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
-              → Grounded system awareness
-            </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="flex justify-center my-6">
-              <div className="w-10 h-px bg-white/20" />
-            </div>
-          </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-base md:text-lg font-light text-white/70">
+            <p className="text-xl md:text-2xl lg:text-3xl font-normal italic text-white" style={{ fontFamily: 'var(--font-serif)' }}>
               Great monitoring UX doesn&rsquo;t simplify systems.
             </p>
-            <p className="text-base md:text-lg font-light text-white/70 mt-1">
+            <p className="text-xl md:text-2xl lg:text-3xl font-normal italic text-white mt-5" style={{ fontFamily: 'var(--font-serif)' }}>
               It makes them understandable under pressure.
-            </p>
-            <p className="text-lg md:text-xl font-normal italic mt-4 text-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              Designing awareness in systems that never stop, when losing context means losing control.
             </p>
           </Reveal>
         </div>

@@ -489,8 +489,6 @@ export default function CaseStudyBitContent({ onNextStudy }: { onNextStudy?: () 
         </div>
       </section>
 
-      <VerticalDivider />
-
       {/* ═══════════════════════════════════════════════════════
           KEY INSIGHT - Dark gradient band
           ═══════════════════════════════════════════════════════ */}
@@ -528,8 +526,6 @@ export default function CaseStudyBitContent({ onNextStudy }: { onNextStudy?: () 
           </Reveal>
         </div>
       </section>
-
-      <VerticalDivider />
 
       {/* ═══════════════════════════════════════════════════════
           THE APPROACH - Vertical timeline
@@ -803,6 +799,26 @@ export default function CaseStudyBitContent({ onNextStudy }: { onNextStudy?: () 
       {/* ═══════════════════════════════════════════════════════
           CLOSING - Dark band with pattern
           ═══════════════════════════════════════════════════════ */}
+      {/* OUTCOME heading - above dark band */}
+      <section className="py-16 md:py-20 px-6 md:px-12 lg:px-16">
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal>
+            <p className="text-[11px] uppercase tracking-[0.3em] mb-6" style={{ color: 'var(--text-tertiary)' }}>Outcome</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-sm md:text-base font-light mb-2" style={{ color: 'var(--text-secondary)' }}>Bit transformed money transfer from:</p>
+            <p className="text-lg md:text-xl font-light mb-6" style={{ color: 'var(--text-secondary)' }}>
+              A stressful financial action → A natural, everyday behavior
+            </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="flex justify-center my-6">
+              <div className="w-10 h-px" style={{ backgroundColor: 'var(--border-subtle)' }} />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="relative py-24 md:py-32 px-6 md:px-12 lg:px-16 text-white overflow-hidden" style={{ backgroundColor: 'var(--color-gray-900)' }}>
         <div className="absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
@@ -813,30 +829,12 @@ export default function CaseStudyBitContent({ onNextStudy }: { onNextStudy?: () 
         }} />
 
         <div className="relative max-w-3xl mx-auto text-center">
-          <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] mb-6 text-white/40">Outcome</p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-sm md:text-base font-light text-white/70 mb-2">Bit transformed money transfer from:</p>
-            <p className="text-lg md:text-xl font-light text-white/70 mb-1">A stressful financial action</p>
-            <p className="text-2xl md:text-3xl lg:text-4xl font-normal text-white mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
-              → A natural, everyday behavior
-            </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="flex justify-center my-6">
-              <div className="w-10 h-px bg-white/20" />
-            </div>
-          </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-base md:text-lg font-light text-white/70">
+            <p className="text-xl md:text-2xl lg:text-3xl font-normal italic text-white" style={{ fontFamily: 'var(--font-serif)' }}>
               Great product design isn&rsquo;t about adding features.
             </p>
-            <p className="text-base md:text-lg font-light text-white/70 mt-1">
+            <p className="text-xl md:text-2xl lg:text-3xl font-normal italic text-white mt-5" style={{ fontFamily: 'var(--font-serif)' }}>
               It&rsquo;s about removing everything users don&rsquo;t need.
-            </p>
-            <p className="text-lg md:text-xl font-normal italic mt-4 text-white" style={{ fontFamily: 'var(--font-serif)' }}>
-              When speed and trust are non-negotiable, simplicity becomes strategy.
             </p>
           </Reveal>
         </div>

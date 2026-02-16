@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 
 /* ── Existing images ─────────────────────────────────────────── */
-import imgHeroDashboard from 'figma:asset/d567446a53f020a289d383932546fdaa051adf81.png';
+import imgHeroDashboard from '@/assets/fg-hierarchy-view.png';
 import imgTableBefore from '@/assets/fg-table-before.png';
 import imgHierarchyCanvas from '@/assets/fg-hierarchy-canvas.png';
 import imgFlow1 from '@/assets/fg-flow-1.png';
@@ -207,7 +207,7 @@ export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy
 
           {/* Annotated table screenshot from Figma */}
           <Reveal delay={0.3}>
-            <div className="mt-14 max-w-5xl mx-auto">
+            <div className="mt-14 mx-auto lg:w-[160%] lg:ml-[-30%]">
               <img
                 src={imgTableBefore}
                 alt="FundGuard legacy table - annotations showing high cognitive load, poor hierarchy visibility, scalability issues, and limited flexibility"
@@ -403,8 +403,6 @@ export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy
           </Reveal>
         </div>
       </section>
-
-      <VerticalDivider />
 
       {/* ═══════════════════════════════════════════════════════
           HYPOTHESIS-DRIVEN DESIGN - Unique editorial framing
@@ -610,7 +608,7 @@ export default function CaseStudyFundguardContent({ onNextStudy }: { onNextStudy
           DESIGN FLOW - Annotated canvas walkthrough
           ═══════════════════════════════════════════════════════ */}
       <section className="pb-16 md:pb-20 px-6 md:px-12 lg:px-16">
-        <div className="max-w-5xl mx-auto">
+        <div className="mx-auto">
           <Reveal>
             <p className="text-[11px] uppercase tracking-[0.3em] mb-4 text-center" style={{ color: 'var(--text-tertiary)' }}>
               Design Flow
