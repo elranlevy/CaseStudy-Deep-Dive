@@ -144,7 +144,7 @@ export function App() {
               className="text-base md:text-lg font-light leading-relaxed"
               style={{ color: 'var(--text-primary)' }}
             >
-              Lead Product Design with a passion for simplifying complex problems.
+              Lead Product Designer with a passion for simplifying complex problems.
             </p>
             <p
               className="text-sm md:text-base font-light leading-relaxed"
