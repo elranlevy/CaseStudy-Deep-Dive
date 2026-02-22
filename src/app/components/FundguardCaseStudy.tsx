@@ -3,6 +3,7 @@ import { CaseStudyLayout } from '@/app/components/CaseStudyLayout';
 import { motion } from 'motion/react';
 import imgHierarchyView from '@/assets/fg-hierarchy-view.png';
 import imgWorkflowTableV1 from '@/assets/fg-workflow-table-v1.png';
+import imgDashboardVariantB from '@/assets/fg-dashboard-variant-b.png';
 import {
   ArrowRight,
   Users,
@@ -885,7 +886,14 @@ export function FundguardCaseStudy({
             </Body>
 
             <div className="mt-8">
-              <ScreenPlaceholder label="A/B test results — Variant B performance" />
+              <img
+                src={imgDashboardVariantB}
+                alt="Variant B Workflow Dashboard — group view with fund status rings, task counts, delay, and transaction metrics per fund group"
+                className="w-full rounded-lg"
+                style={{ border: '1px solid var(--border-subtle)' }}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </motion.section>
 
