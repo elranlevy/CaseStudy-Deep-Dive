@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import imgHierarchyView from '@/assets/fg-hierarchy-view.png';
 import imgWorkflowTableV1 from '@/assets/fg-workflow-table-v1.png';
 import imgDashboardVariantB from '@/assets/fg-dashboard-variant-b.png';
+import imgVariantBDetailed from '@/assets/fg-variant-b-detailed.png';
 import {
   ArrowRight,
   Users,
@@ -505,49 +506,6 @@ export function FundguardCaseStudy({
                 className="mt-3 text-sm md:text-base font-normal leading-relaxed"
                 style={{ color: 'var(--text-primary)' }}
               >
-                Aggregating notifications by gap type and deduplicating
-                across streams will reduce noise.
-              </p>
-              <div className="mt-4 flex flex-col gap-2">
-                <p
-                  className="text-sm font-light leading-relaxed"
-                  style={{ color: 'var(--text-secondary)' }}
-                >
-                  <span style={{ color: 'var(--text-tertiary)' }}>
-                    Why it makes sense:
-                  </span>{' '}
-                  Multiple streams can detect the same gap, creating
-                  duplicates. Fewer interruptions means accountants focus on
-                  unique issues.
-                </p>
-                <p
-                  className="text-sm font-light leading-relaxed"
-                  style={{ color: 'var(--text-secondary)' }}
-                >
-                  <span style={{ color: 'var(--text-tertiary)' }}>
-                    What could go wrong:
-                  </span>{' '}
-                  Dedup logic that's too aggressive could suppress real
-                  issues.
-                </p>
-              </div>
-            </div>
-
-            {/* H3 */}
-            <div
-              className="mt-4 rounded-lg p-6 md:p-8"
-              style={{ backgroundColor: 'var(--surface-secondary)' }}
-            >
-              <p
-                className="text-[10px] uppercase tracking-[0.18em] font-medium"
-                style={{ color: 'var(--text-tertiary)' }}
-              >
-                Hypothesis 3
-              </p>
-              <p
-                className="mt-3 text-sm md:text-base font-normal leading-relaxed"
-                style={{ color: 'var(--text-primary)' }}
-              >
                 Asset managers who see real-time group progress and
                 bottlenecks will make faster resource decisions.
               </p>
@@ -583,45 +541,62 @@ export function FundguardCaseStudy({
             >
               Solution
             </h2>
-            <Body>
-              <p>Two changes.</p>
-            </Body>
-
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div
-                className="rounded-lg p-5 flex items-start gap-4"
-                style={{ backgroundColor: 'var(--surface-secondary)' }}
-              >
-                <LayoutDashboard
-                  className="w-5 h-5 shrink-0 mt-0.5"
-                  strokeWidth={ICON_STROKE}
-                  style={{ color: 'var(--text-tertiary)' }}
-                />
-                <p
-                  className="text-sm font-light leading-relaxed"
-                  style={{ color: 'var(--text-secondary)' }}
+            <div className="mt-6 flex flex-col gap-5">
+              <div className="flex items-start gap-4">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: 'var(--surface-secondary)' }}
                 >
-                  Dashboard with drill-down into each workflow — so asset
-                  managers see the full picture and accountants still get to
-                  details.
-                </p>
+                  <span
+                    className="text-xs font-medium"
+                    style={{ color: 'var(--text-tertiary)' }}
+                  >
+                    1
+                  </span>
+                </div>
+                <div>
+                  <p
+                    className="text-sm md:text-base font-normal"
+                    style={{ color: 'var(--text-primary)' }}
+                  >
+                    Dashboard with drill-down
+                  </p>
+                  <p
+                    className="mt-1 text-sm font-light leading-relaxed"
+                    style={{ color: 'var(--text-secondary)' }}
+                  >
+                    Asset managers get a consolidated view of all workflows.
+                    Accountants can still drill into individual details.
+                  </p>
+                </div>
               </div>
-              <div
-                className="rounded-lg p-5 flex items-start gap-4"
-                style={{ backgroundColor: 'var(--surface-secondary)' }}
-              >
-                <BellOff
-                  className="w-5 h-5 shrink-0 mt-0.5"
-                  strokeWidth={ICON_STROKE}
-                  style={{ color: 'var(--text-tertiary)' }}
-                />
-                <p
-                  className="text-sm font-light leading-relaxed"
-                  style={{ color: 'var(--text-secondary)' }}
+
+              <div className="flex items-start gap-4">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: 'var(--surface-secondary)' }}
                 >
-                  Aggregated notification mechanism that deduplicated gaps.
-                  One gap, one notification.
-                </p>
+                  <span
+                    className="text-xs font-medium"
+                    style={{ color: 'var(--text-tertiary)' }}
+                  >
+                    2
+                  </span>
+                </div>
+                <div>
+                  <p
+                    className="text-sm md:text-base font-normal"
+                    style={{ color: 'var(--text-primary)' }}
+                  >
+                    Aggregated notifications
+                  </p>
+                  <p
+                    className="mt-1 text-sm font-light leading-relaxed"
+                    style={{ color: 'var(--text-secondary)' }}
+                  >
+                    Duplicate gap alerts are merged. One gap, one notification.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -777,7 +752,14 @@ export function FundguardCaseStudy({
 
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
               <ScreenPlaceholder label="Variant A — Lean dashboard" />
-              <ScreenPlaceholder label="Variant B — Detailed dashboard" />
+              <img
+                src={imgVariantBDetailed}
+                alt="Variant B — Detailed Dashboard with fund status, tasks, delay, transactions, and delayed funds per group"
+                className="w-full rounded-lg"
+                style={{ border: '1px solid var(--border-subtle)' }}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
 
             <div className="mt-8">
