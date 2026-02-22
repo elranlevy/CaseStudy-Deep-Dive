@@ -21,7 +21,7 @@ function figmaAssetResolver(): Plugin {
 }
 
 export default defineConfig({
-  base: '/MyPortfolio/',
+  base: '/CaseStudy-Deep-Dive/',
   plugins: [
     figmaAssetResolver(),
     react(),

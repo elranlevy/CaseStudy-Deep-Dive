@@ -4,4 +4,4 @@
 set -e
 cd "$(dirname "$0")/.."
 git push origin main
-echo "Pushed to https://github.com/elranlevy/MyPortfolio.git"
+echo "Pushed to https://github.com/elranlevy/CaseStudy-Deep-Dive.git"

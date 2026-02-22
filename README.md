@@ -3,7 +3,7 @@
 
   This is a code bundle for Elran Levy Portfolio. The original project is available at https://www.figma.com/design/ID28rKsrMgMsQr6QIlhX5h/ElranPortfolio--31jan10-15---For-Adi-.
 
-  **Repository:** https://github.com/elranlevy/MyPortfolio.git
+  **Repository:** https://github.com/elranlevy/CaseStudy-Deep-Dive.git
 
   ### Push without typing credentials (one-time SSH setup)
 
